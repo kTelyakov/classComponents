@@ -32,10 +32,6 @@ export default class Comment extends Vue {
   get avatar () {
     return `https://robohash.org/${this.comment.author}.png`
   }
-
-  created () {
-
-  }
 }
 
 </script>

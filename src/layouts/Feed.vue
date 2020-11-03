@@ -19,14 +19,7 @@ import Tweet from '~/components/Tweet/index.vue'
 })
 
 export default class Feed extends Vue {
-
   @Getter('allTweets')
   allTweets: any
-
-
-  created () {
-    console.log('Feed created')
-    console.log('AUTHORS ', this.allTweets)
-  }
 }
 </script>

@@ -110,8 +110,9 @@ export default class Tweet extends Vue {
 
   async storeComment (): Promise<void> { // Генерим и сохраняем по 3 коммента для каждого поста
     const { data } = await CommentGenerator.create()
+    const comment = this.createComment(data[0].slice(0, 40))
     this.setComment({
-      ...this.createComment(data[0].slice(0, 40))
+      ...comment
     })
     clearInterval(this.intervalId)
     this.startCommentsGenerate()
@@ -119,7 +120,7 @@ export default class Tweet extends Vue {
 
 
   async startCommentsGenerate (): Promise<void> {
-    const delay = getRandomArbitrary(300, 1400)
+    const delay = getRandomArbitrary(300, 7000)
     this.intervalId = await setInterval(this.storeComment, delay)
     this.commentsAmountCounter++
   }

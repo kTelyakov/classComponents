@@ -21,7 +21,7 @@
 <script lang="ts">
 import { genRandomName } from "@/utils/generateNames"
 import {Component, Vue, Watch} from 'vue-property-decorator'
-import { Mutation } from "vuex-class"
+import { Mutation, Getter } from "vuex-class"
 import { ITweet } from '@/models/Tweet'
 
 @Component
@@ -32,6 +32,9 @@ export default class CreateTweet extends Vue {
 
   @Mutation('setTweet')
   setTweet!: (tweet: ITweet) => void
+
+  @Getter('allTweets')
+  allTweets: any
 
   @Watch('tweetMessage')
   tweetMessageHandler(val: string, oldVal: string) {
@@ -52,6 +55,10 @@ export default class CreateTweet extends Vue {
     })
     this.tweetMessage = '' // Очистили поле
     this.tweetId++ // заинкрементили id
+  }
+
+  created () {
+    this.tweetId = this.allTweets.length + 1
   }
 }
 
