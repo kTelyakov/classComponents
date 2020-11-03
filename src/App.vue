@@ -1,29 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <v-app>
+    <v-container>
+      <v-app-bar
+        app
+        color="primary"
+        dark
+      >
+        <v-btn @click="lightThemeOn" class="mr-3" outlined>Светлая тема</v-btn>
+        <v-btn @click="darkThemeOn">Темная тема</v-btn>
+        <v-spacer></v-spacer>
+      </v-app-bar>
+
+      <v-main>
+        <create-tweet></create-tweet>
+        <feed></feed>
+      </v-main>
+    </v-container>
+  </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from 'vue-property-decorator'
+import Feed from './layouts/Feed.vue'
+import CreateTweet from '@/components/CreateTweet.vue'
 
 @Component({
   components: {
-    HelloWorld,
-  },
+    Feed,
+    CreateTweet
+  }
 })
-export default class App extends Vue {}
-</script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+export default class App extends Vue {
+
+  lightThemeOn(): void {
+    this.$vuetify.theme.dark = false
+  }
+
+  darkThemeOn(): void {
+    this.$vuetify.theme.dark = true
+  }
 }
-</style>
+</script>

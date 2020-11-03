@@ -1,4 +1,3 @@
-# gazprom-twitter
 
 ## Project setup
 ```
