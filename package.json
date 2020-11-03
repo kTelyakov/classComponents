@@ -12,7 +12,7 @@
     "unique-names-generator": "^4.3.1",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
-    "vue-localstorage": "^0.6.2",
+
     "vue-property-decorator": "^8.4.2",
     "vuetify": "^2.2.11",
     "vuex": "^3.4.0",

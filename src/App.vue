@@ -64,7 +64,8 @@ export default class App extends Vue {
   }
 
   created () {
-    initStorage.call(this)
+    const _this: any = this
+    initStorage.call(_this)
   }
 }
 </script>

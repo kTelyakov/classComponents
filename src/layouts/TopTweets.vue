@@ -37,7 +37,7 @@ export default class TopTweets extends Vue {
   allCommentsAmount!: () => void
 
   @Getter('allTweets')
-  allTweets!: () => void
+  allTweets: any
 
   @Getter('allComments')
   allComments!: () => void
