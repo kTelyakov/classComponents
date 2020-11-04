@@ -77,7 +77,7 @@ export default class Tweet extends Vue {
 
 
   async startCommentsGenerate (): Promise<any> { // Начинаем генерить комменты
-    const delay = getRandomArbitrary(1000, 3000)
+    const delay = getRandomArbitrary(5000, 30000)
     this.intervalId = await setInterval(this.storeComment, delay)
   }
 
